@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app ng-controller="myController">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/angular.min.js"></script>
+</head>
+<body>
+  <div>
+      <p>{{msg}}</p>
+      <ul>
+          <li ng-repeat="s in stu">
+                {{$index}}{{s.name}},{{s.sex}}
+          </li>
+      </ul>
+      <span>{{data.eat()}}</span>
+      <span>{{adddata()}}</span>
+      <!--事件指令-->
+      <button ng-click="btnsave(data)">按钮</button>
+  </div>
+  <!--控制器的写法-->
+  <script>
+        //构造函数
+        /*$scope  注入服务  $scope  全局变量  angualr 声明  变量  函数  或者事件  $scope  相当于jquery里面的$  */
+      function myController($scope){
+        //在控制器里面如何声明变量
+          $scope.msg="Hello";
+          //声明对象也是这样
+          $scope.stu=[
+              {name:"张三",sex:"男"},
+              {name:"张三",sex:"男"},
+              {name:"张三",sex:"男"},
+              {name:"张三",sex:"男"}
+          ];
+          //js  枚举对象
+          $scope.data={
+              name:"李四",
+              eat:function (){
+                  return "我正在吃饭!"
+              }
+          }
+          //angular  直接定义方法
+          $scope.a=10;
+          $scope.b=20;
+          $scope.adddata=function (){
+              return $scope.a+$scope.b;
+          }
+          /*angular  声明事件*/
+          $scope.btnsave=function (obj){
+              console.log(obj);
+          }
+
+      }
+  </script>
+</body>
+</html>

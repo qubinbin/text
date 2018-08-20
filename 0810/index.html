@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+   <!-- 导入js文件-->
+    <script src="js/angular.min.js"></script>
+    <style>
+        .block{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .sky{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+ <!-- angular  里面的指令都是以ng-***  开头-->
+  <!-- 指令类似于vue指令-->
+  <!--数据也是双向原则问题-->
+  <!-- ng-app  定义了一个应用程序模块-->
+  <!--ng-model  绑定值  类似于  v-model  使用与表单元素-->
+  <!-- ng-bind 也是绑定数据  -->
+   <!--ng-init  初始化变量指令-->
+  <!--表达式  {{}}  也是数据的绑定-->
+   <!--表达式里面也可以写  基本的js语法-->
+  <div ng-app>
+      <input type="text" ng-model="stuname"/>
+      <p>{{stuname}}</p>
+      <span ng-bind="stuname"></span>
+      <p ng-init="a=10"></p>
+      <!--ng-init  可以初始化变量 数组  json-->
+      <p ng-init="a=[1,2,3,4,5]"></p>
+      <span ng-bind="a"></span>
+      <p ng-init="m=10"></p>
+      <p ng-init="b=20"></p>
+      <span>{{m+"/"+b}}</span>
+     <!-- <span>{{a.join("")}}</span>-->
+      <!--<span>{{a.join("").split("")}}</span>-->
+    <!--  <span>{{a.length?1:2}}</span>-->
+      <input type="text" ng-model="txt"/>
+      <input type="text" ng-model="txt1"/>
+      <span>{{txt*txt1}}</span><!--+  按照字符串的拼接  * -/  这些符号正常-->
+      <!--v-for  v-repeat-->
+      <!--重复元素  ng-repeat  一样的用法-->
+      <!--<p ng-init="stu=[1,2,3]"></p>-->
+      <!--ng-repeat   使用索引  $index-->
+
+      <p ng-init="stu=[{name:'z'},{name:'m'}]"></p>
+      <ul>
+          <li ng-repeat="list in stu">
+            {{list.name+"/"+$index}}
+          </li>
+      </ul>
+      <!--angular  数组使用方式-->
+      <p ng-init="arr=[1,2,3]"> </p>
+      <p>{{arr[0]}}</p>
+      <!--ng-show 控制元素显示隐藏  bool类型的值-->
+      <p ng-show="false">1234345435</p>
+      <!--ng-class  动态绑定单个或者多个class   {}-->
+     <!-- <div ng-class="{block:false}">
+
+      </div>-->
+      <!--<p ng-init="clname='block'"></p>
+      <p ng-init="clname1='sky'"></p>
+      <div ng-class="clname">
+
+      </div>
+
+      <div ng-class="[clname,clname1]">
+
+      </div>-->
+      <!--angular 里面写属性的绑定值-->
+      <p ng-init="src='./img/1.png'"></p>
+      <img src="{{src}}" alt=""/>
+      <!--ng-bind=""-->
+     <!--ng-app
+      ng-model
+      ng-show
+      ng-bind
+      {{}}
+      ng-init
+      -->
+
+  </div>
+</body>
+</html>

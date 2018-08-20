@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="myApp" ng-controller="myController">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/w_model.js"></script>
+</head>
+<body>
+<span>{{msg}}</span>
+<button ng-click="btnclick()">按钮</button>
+<p>{{stringName | uppercase}}</p>
+<p>{{stringinfo | lowercase}}</p>
+<ul>
+    <li ng-repeat="s in arr | orderBy:'id'">
+        {{s.id+"/"+s.name}}
+    </li>
+</ul>
+<p>{{money | currency :'￥'}}</p>
+<input type="text" ng-model="sex"/>
+<ul>
+    <li ng-repeat="m in arr | filter:sex">
+        {{m}}
+    </li>
+</ul>
+<input type="text" ng-model="res"/>
+<p>{{arrlist | msort:res}}</p>
+</body>
+</html>
